@@ -15,3 +15,7 @@ This is a quick test replicating code found at https://carpentries-incubator.git
     * pip install streamlit
     * pip install pandas
     * pip install plotly
+
+## Screenshot of the app:
+
+![screenshot of the app](img/app_preview.png)
