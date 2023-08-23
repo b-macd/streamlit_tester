@@ -42,11 +42,14 @@ with st.sidebar:
 
 df_filtered = df_filtered[df_filtered.country.isin(countries)]
 
+
 year_min = int(df_filtered['year'].min())
 year_max = int(df_filtered['year'].max())
 
+
 with st.sidebar:
     years = st.slider(label = "What years should be plotted?", min_value = year_min, max_value = year_max, value = (year_min, year_max))
+
 
 df_filtered = df_filtered[(df_filtered.year >= years[0]) & (df_filtered.year <= years[1])]
 
@@ -55,6 +58,7 @@ st.markdown(f"This plot shows the {metric_labels[metric]} from {years[0]} to {ye
 # create the plot
 title = f"{metric_labels[metric]} for countries in {continent}"
 fig = px.line(df_filtered, x = "year", y = "value", color = "country", title = title, labels={"value": f"{metric_labels[metric]}"})
+
 
 # display the plot
 st.plotly_chart(fig, use_container_width=True)
