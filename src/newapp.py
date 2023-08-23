@@ -1,13 +1,16 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from pathlib import Path
 
 # set up the app with wide view preset and a title
 st.set_page_config(layout="wide")
 st.title("Interact with Gapminder Data")
 
+
+#df = Path(__file__).parents / 'data/gapminder_tidy.csv'
 # import our data as a pandas dataframe
-df = pd.read_csv("../data/gapminder_tidy.csv")
+df = pd.read_csv("./data/gapminder_tidy.csv")
 
 # get a list of all possible continents and metrics, for the widgets
 continent_list = list(df['continent'].unique())
