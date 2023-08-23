@@ -19,3 +19,6 @@ This is a quick test replicating code found at https://carpentries-incubator.git
 ## Screenshot of the app:
 
 ![screenshot of the app](img/app_preview.png)
+
+## Link for cloud hosted version of the app:
+https://apptester-2nyunvme9zvqpd3b5pxfz7.streamlit.app/
