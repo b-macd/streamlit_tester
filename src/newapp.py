@@ -27,10 +27,20 @@ with st.sidebar:
     continent = st.selectbox(label = "Choose a continent", options = continent_list)
     # widget to choose which metric to display
     metric = st.selectbox(label = "Choose a metric", options = metric_list, format_func=format_metric)
+    
 
 # use selected values from widgets to filter dataset down to only the rows we need
 query = f"continent=='{continent}' & metric=='{metric}'"
 df_filtered = df.query(query)
+
+# create a list of unique countries within the dataset
+countries_list = list(df_filtered['country'].unique())
+
+# create a sidebar option that allows the user to select or deselect specific countries
+with st.sidebar:
+    countries = st.multiselect(label = "Which countries should be plotted?", options = countries_list, default = countries_list)
+
+df_filtered = df_filtered[df_filtered.country.isin(countries)]
 
 # create the plot
 title = f"{metric_labels[metric]} for countries in {continent}"
